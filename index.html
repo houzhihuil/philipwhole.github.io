@@ -15,10 +15,9 @@
           .then(response => response.json()) 
           .then(data => {
             // Use the JSON data here
-            console.log(data);
             const container = document.getElementById('data-container');
             //container.textContent = JSON.stringify(data.liste[11], null, 2);
-            container.textContent = JSON.stringify(data, null, 2);  
+            container.textContent = JSON.stringify(data[11], null, 2);  
           })
           .catch(error => {
             console.error('Error fetching JSON data:', error);

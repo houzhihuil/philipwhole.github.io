@@ -1,120 +1,31 @@
-<!-- <!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CV_Philip</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 100px;
-      padding: 20px;
-    }
-
-    h1 {
-      color: #333;
-	  text-align: center
-    }
-
-    h2 {
-      color: blue;
-    }
-
-    p {
-      margin-bottom: 10px;
-    }
-
-    .section {
-      margin-bottom: 30px;
-    }
-  </style>
-</head>
-<body>
-  <div class="section">
-    <h1>Philip Hou - Comptable</h1><br>
-	<p>Adresse: Montréal (Québec) H9K 0A7</p>
-    <p>Téléphone : (438) 505-7246</p>
-    <p>Courriel : houzhihuil@gmail.com</p>
-	<p>Lindedin: https://www.linkedin.com/in/philip-hou-87b529278/</p>
-	<p>Website : www.philipwhole.ddns.net</p> 
-
-  </div>
-	
-  <hr>
-  <div class="section">
-    <h2>Formation</h2>
-    <p>Comptabilité</p>
-    <p>Université de McGill, Montréal, 2006-2009</p> 
-  </div> 
- 
-  <hr>
-  <div class="section">
-    <h2>Expérience</h2>
-    <h3>Commis comptable</h3>
-    <p>9249-3634 QUÉBEC inc.</p>
-    <p>2011 - 2018</p>
-    <ul>
-      <li>Tenu de livres</li>
-      <li>rapports comptables</li> 
-    </ul>
- 
-    <br>
-	<h3>Comptable</h3>
-    <p>Regent Textile Machinery Canada Lté</p>
-    <p>2020 - Present</p>
-    <ul>
-      <li>Tenu de livres</li>
-      <li>rapports comptables</li>
-	  <li>clôture d’exercice</li>	  
-    </ul>
-  </div>
-
-  <hr>
-  <div class="section">
-    <h2>Capacité et Compétences</h2>
-    <ul>
-      <li>Être responsable de l'ensemble du cycle de l'activité comptable selon les PCGR</li>
-      <li>Faire la tenue de livres ainsi que le suivi des comptes</li>
-      <li>Réconciliation bancaire,  réconciliation carte de Crédit</li>
-      <li>Traiter les remises gouvernementales - TPS-TVH, TVQ et DAS</li>
-      <li>CNESST, Gérer les paies, DAS, T4 et RL-1 pour les employés et le gouvernement</li>
-	  <li>JavaScript</li>
-      <li>Python</li>
-      <li>T4A à la fin de l’année (slips et summary)</li>
-	  <li>Exercice des systèmes fiscaux de la Québec, de l'Ontario, de la Colombie-Britannique, etc.</li>
-	  <li>Configuration multidevise et rapports en devises étrangères et en dollar canadien</li>
-      <li>Vérifier les droits de douane sur la déclaration et l'ajustement de l'ASFC</li>
-      <li>Préparer et analyser les états financiers mensuels et annuels</li>
-	  <li>Ajustement des stocks de fin d'année</li>
-	  <li>Coopérer avec le cabinet CPA et la clôture de fin d'année</li>
-	  <li>Identifier et analyser les problèmes et les résoudre</li>
-	  <li>Bonne connaissance de l’informatique : développer et maintenir un serveur Web, gestion efficace des données, cryptage et décryptage des données, partager et synchroniser les données, adapté au télétravail.</li>
- 	  
-    </ul>
-  </div>
-
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JSON Data</title>
+  <title>JSON API</title>
 </head>
 <body>
-  <h1>Liste des produits</h1>
+  <h1>Get Json data from Json-server</h1>
+  <h2>Liste des employees</h2>
   <div id="data-container"></div>
 
-  <script>
-    fetch('produits.json')
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById('data-container');
-        container.textContent = JSON.stringify(data, null, 2);
-      })
-      .catch(error => console.error('Error fetching data:', error));
-  </script>
+  <script> 
+    let url = 'https://json-server.cyclic.cloud/api/employees'; 
+ 
+          fetch(url) 
+          .then(response => response.json()) 
+          .then(data => {
+            // Use the JSON data here
+            console.log(data);
+            const container = document.getElementById('data-container');
+            //container.textContent = JSON.stringify(data.liste[11], null, 2);
+            container.textContent = JSON.stringify(data, null, 2);  
+          })
+          .catch(error => {
+            console.error('Error fetching JSON data:', error);
+});
+
+  </script> 
+
 </body>
 </html>
 
